@@ -22,44 +22,70 @@
                                 
                              </div>
                         <?php endif;?>
-                        <form action="<?php echo base_url();?>mantenimiento/productos/update" method="POST">
-                            <input type="hidden" name="idproducto" value="<?php echo $producto->id;?>">
-                            <div class="form-group <?php echo !empty(form_error('codigo')) ? 'has-error':'';?>">
-                                <label for="codigo">Nro Movil:</label>
-                                <input type="text" class="form-control" id="codigo" name="codigo" value="<?php echo !empty(form_error('codigo')) ? set_value('codigo'):$producto->codigo?>">
-                                <?php echo form_error("codigo","<span class='help-block'>","</span>");?>
+                        <form action="<?php echo base_url();?>mantenimiento/usuarios/update" method="POST">
+                            <input type="hidden" name="idUsuario" value="<?php echo $usuario->idUsuario;?>">
+                            
+                            }<div class="form-group <?php echo !empty(form_error('nombres')) ? 'has-error':'';?>">
+                                <label for="nombres">Nombre:</label>
+                                <input type="text" class="form-control" id="nombres" name="nombres" value="<?php echo !empty(form_error('nombres')) ? set_value('nombres'):$usuario->nombres?>">
+                                <?php echo form_error("nombres","<span class='help-block'>","</span>");?>
                             </div>
-                            <div class="form-group <?php echo !empty(form_error('nombre')) ? 'has-error':'';?>">
-                                <label for="nombre">color:</label>
-                                <input type="text" class="form-control" id="nombre" name="nombre" value="<?php echo !empty(form_error('nombre')) ? set_value('nombre'):$producto->nombre?>">
-                                <?php echo form_error("nombre","<span class='help-block'>","</span>");?>
+                            
+                            <div class="form-group <?php echo !empty(form_error('apellidoPaterno')) ? 'has-error':'';?>">
+                                <label for="apellidoPaterno">Ap. Paterno:</label>
+                                <input type="text" class="form-control" id="apellidoPaterno" name="apellidoPaterno" value="<?php echo !empty(form_error('apellidoPaterno')) ? set_value('apellidoPaterno'):$usuario->apellidoPaterno?>">
+                                <?php echo form_error("apellidoPaterno","<span class='help-block'>","</span>");?>
                             </div>
+                            
                             <div class="form-group">
-                                <label for="descripcion">Descripcion:</label>
-                                <input type="text" class="form-control" id="descripcion" name="descripcion" value="<?php echo $producto->descripcion?>">
+                                <label for="celular">Celular:</label>
+                                <input type="text" class="form-control" id="celular" name="celular" value="<?php echo $usuario->celular?>">
                             </div>
-                            <div class="form-group <?php echo !empty(form_error('precio')) ? 'has-error':'';?>">
-                                <label for="precio">Marca y Modelo:</label>
-                                <input type="text" class="form-control" id="precio" name="precio" value="<?php echo !empty(form_error('precio')) ? set_value('precio'):$producto->precio?>">
-                                <?php echo form_error("precio","<span class='help-block'>","</span>");?>
+                            
+                            <div class="form-group <?php echo !empty(form_error('fotoUsuario')) ? 'has-error':'';?>">
+                                <label for="fotoUsuario">Foto de Usuario:</label>
+                                <input type="text" class="form-control" id="fotoUsuario" name="fotoUsuario" value="<?php echo !empty(form_error('fotoUsuario')) ? set_value('fotoUsuario'):$usuario->fotoUsuario?>">
+                                <?php echo form_error("fotoUsuario","<span class='help-block'>","</span>");?>
                             </div>
-                            <div class="form-group <?php echo !empty(form_error('stock')) ? 'has-error':'';?>">
-                                <label for="stock">entero:</label>
-                                <input type="text" class="form-control" id="stock" name="stock" value="<?php echo !empty(form_error('stock')) ? set_value('stock'):$producto->stock?>">
+                            
+                            <div class="form-group ">
+                                <label for="stock">nombreUsuario:</label>
+                                <input type="text" class="form-control" id="nombreUsuario" name="nombreUsuario" value="<?php echo !empty(form_error('stock')) ? set_value('stock'):$usuario->nombreUsuario?>">
                                 <?php echo form_error("stock","<span class='help-block'>","</span>");?>
                             </div>
+
+                            <div class="form-group ">
+                                <label for="stock">contrasena:</label>
+                                <input type="text" class="form-control" id="contrasena" name="contrasena" value="<?php echo !empty(form_error('contrasena')) ? set_value('contrasena'):$usuario->contrasena?>">
+                                <?php echo form_error("contrasena","<span class='help-block'>","</span>");?>
+                            </div>
+                            
                             <div class="form-group">
-                                <label for="categoria">Categoria:</label>
-                                <select name="categoria" id="categoria" class="form-control">
-                                    <?php foreach($categorias as $categoria):?>
-                                        <?php if($categoria->id == $producto->categoria_id):?>
-                                        <option value="<?php echo $categoria->id?>" selected><?php echo $categoria->nombre;?></option>
+                                <label for="rol">Rol:</label>
+                                <select name="rol" id="rol" class="form-control">
+                                    <?php foreach($roles as $rol):?>
+                                        <?php if($rol->id == $rol->idRol):?>
+                                        <option value="<?php echo $rol->id?>" selected><?php echo $rol->nombre;?></option>
                                     <?php else:?>
-                                        <option value="<?php echo $categoria->id?>"><?php echo $categoria->nombre;?></option>
+                                        <option value="<?php echo $rol->id?>"><?php echo $rol->nombre;?></option>
                                         <?php endif;?>
                                     <?php endforeach;?>
                                 </select>
                             </div>
+
+                             <div class="form-group">
+                                <label for="nombreRes">Restaurante</label>
+                                <select name="nombreRes" id="nombreRes" class="form-control">
+                                    <?php foreach($restaurantes as $nombreRes):?>
+                                        <?php if($nombreRes->id == $nombreRes->idRestaurante):?>
+                                        <option value="<?php echo $nombreRes->idRestaurante?>" selected><?php echo $nombreRes->nombre  ;?></option>
+                                         <?php else:?>
+                                        <option value="<?php echo $nombreRes->id?>"><?php echo $nombreRes->nombre;?></option>
+                                        <?php endif;?>
+                                    <?php endforeach;?>
+                                </select>
+                            </div>
+                            
                             <div class="form-group">
                                 <button type="submit" class="btn btn-success btn-flat">Guardar</button>
                             </div>
