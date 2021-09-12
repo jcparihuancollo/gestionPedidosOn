@@ -4,7 +4,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-        Representante
+        Productos
         <small>Nuevo</small>
         </h1>
     </section>
@@ -23,38 +23,39 @@
                              </div>
                         <?php endif;?>
                         <form action="<?php echo base_url();?>mantenimiento/productos/store" method="POST">
-                            <div class="form-group <?php echo !empty(form_error('codigo')) ? 'has-error':'';?>">
-                                <label for="codigo">Nro Repre.:</label>
-                                <input type="text" class="form-control" id="codigo" name="codigo" value="<?php echo set_value('codigo');?>">
-                                <?php echo form_error("codigo","<span class='help-block'>","</span>");?>
-                            </div>
+                           
                             <div class="form-group <?php echo !empty(form_error('nombre')) ? 'has-error':'';?>">
                                 <label for="nombre">Nombre:</label>
                                 <input type="text" class="form-control" id="nombre" name="nombre" value="<?php echo set_value('nombre');?>">
-                                <?php echo form_error("nombre","<span class='help-block'>","</span>");?>
+                                <?php echo form_error("codigo","<span class='help-block'>","</span>");?>
                             </div>
+                           
                             <div class="form-group ">
-                                <label for="descripcion">Apellido:</label>
+                                <label for="descripcion">Descripcion:</label>
                                 <input type="text" class="form-control" id="descripcion" name="descripcion">
                             </div>
+                           
                             <div class="form-group <?php echo !empty(form_error('precio')) ? 'has-error':'';?>">
-                                <label for="precio">Area:</label>
+                                <label for="precio">Precio:</label>
                                 <input type="text" class="form-control" id="precio" name="precio" value="<?php echo set_value('precio');?>">
                                 <?php echo form_error("precio","<span class='help-block'>","</span>");?>
                             </div>
-                            <div class="form-group <?php echo !empty(form_error('stock')) ? 'has-error':'';?>">
-                                <label for="stock">Edad:</label>
-                                <input type="text" class="form-control" id="stock" name="stock" value="<?php echo set_value('stock');?>">
-                                <?php echo form_error("stock","<span class='help-block'>","</span>");?>
+                           
+                            <div class="form-group <?php echo !empty(form_error('fotoProducto')) ? 'has-error':'';?>">
+                                <label for="fotoProducto">Foto Producto:</label>
+                                <input type="text" class="form-control" id="fotoProducto" name="fotoProducto" value="<?php echo set_value('fotoProducto');?>">
+                                <?php echo form_error("fotoProducto","<span class='help-block'>","</span>");?>
                             </div>
+                           
                             <div class="form-group">
-                                <label for="categoria">Nivel Acad.:</label>
+                                <label for="categoria">Categoria:</label>
                                 <select name="categoria" id="categoria" class="form-control">
                                     <?php foreach($categorias as $categoria):?>
-                                        <option value="<?php echo $categoria->id?>"><?php echo $categoria->nombre;?></option>
+                                        <option value="<?php echo $categoria->idCategoria?>"><?php echo $categoria->nombre;?></option>
                                     <?php endforeach;?>
                                 </select>
                             </div>
+                           
                             <div class="form-group">
                                 <button type="submit" class="btn btn-success btn-flat">Guardar</button>
                             </div>

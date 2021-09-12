@@ -4,7 +4,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-        Representante
+        Productos
         <small>Listado</small>
         </h1>
     </section>
@@ -15,7 +15,7 @@
             <div class="box-body">
                 <div class="row">
                     <div class="col-md-12">
-                        <a href="<?php echo base_url();?>mantenimiento/productos/add" class="btn btn-primary btn-flat"><span class="fa fa-plus"></span> Agregar Representante</a>
+                        <a href="<?php echo base_url();?>mantenimiento/productos/add" class="btn btn-primary btn-flat"><span class="fa fa-plus"></span> Agregar Producto</a>
                     </div>
                 </div>
                 <hr>
@@ -24,13 +24,13 @@
                         <table id="example1" class="table table-bordered table-hover">
                             <thead>
                                 <tr>
-                                    <th>#</th>
-                                    <th>Nro Repres.</th>
-                                    <th>Nombre</th>
-                                    <th>Apellido</th>
-                                    <th>Area</th>
-                                    <th>edad</th>
-                                    <th>Nivel acad.</th>
+                                    
+                                    <th>Nombre </th>
+                                    <th>Precio </th>
+                                    <th>descripcion</th>
+                                    <th>foto Producto</th>
+                                    <th>Categoría</th>
+                                    <th>Restaurante</th>
                                     <th>Opciones</th>
                                 </tr>
                             </thead>
@@ -38,22 +38,26 @@
                                 <?php if(!empty($productos)):?>
                                     <?php foreach($productos as $producto):?>
                                         <tr>
-                                            <td><?php echo $producto->id;?></td>
-                                            <td><?php echo $producto->codigo;?></td>
                                             <td><?php echo $producto->nombre;?></td>
-                                            <td><?php echo $producto->descripcion;?></td>
                                             <td><?php echo $producto->precio;?></td>
-                                            <td><?php echo $producto->stock;?></td>
+                                            <td><?php echo $producto->descripcion;?></td>
+                                            <td><?php echo $producto->fotoProducto;?></td>
                                             <td><?php echo $producto->categoria;?></td>
-                                            <?php $dataproducto = $producto->id."*".$producto->codigo."*".$producto->nombre."*".$producto->descripcion."*".$producto->precio."*".$producto->stock."*".$producto->categoria;?>
+                                            <td><?php echo $producto->nombreRes;?></td>
+  
+
+                                            <?php $dataproducto = $producto->nombre."*".$producto->precio."*".$producto->descripcion."*".$producto->fotoProducto."*".$producto->categoria;?>
                                             <td>
                                                 <div class="btn-group">
+                                                    
                                                     <button type="button" class="btn btn-info btn-view-producto" data-toggle="modal" data-target="#modal-default" value="<?php echo $dataproducto;?>">
                                                         <span class="fa fa-search"></span>
                                                     </button>
+                                                    
                                                     <a href="<?php echo base_url()?>mantenimiento/productos/edit/<?php echo $producto->id;?>" class="btn btn-warning"><span class="fa fa-pencil"></span></a>
                                                     <a href="<?php echo base_url();?>mantenimiento/productos/delete/<?php echo $producto->id;?>" class="btn btn-danger btn-remove"><span class="fa fa-remove"></span></a>
                                                 </div>
+                                            
                                             </td>
                                         </tr>
                                     <?php endforeach;?>
