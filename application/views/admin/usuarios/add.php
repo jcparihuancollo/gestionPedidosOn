@@ -23,11 +23,13 @@
                              </div>
                         <?php endif;?>
                         <form action="<?php echo base_url();?>mantenimiento/usuarios/store" method="POST">
-                            <div class="form-group <?php echo !empty(form_error('codigo')) ? 'has-error':'';?>">
+                            
+                            <div class="form-group <?php echo !empty(form_error('nombres')) ? 'has-error':'';?>">
                                 <label for="nombres">nombres:</label>
                                 <input type="text" class="form-control" id="nombres" name="nombres" value="<?php echo set_value('nombres');?>">
                                 <?php echo form_error("nombres","<span class='help-block'>","</span>");?>
                             </div>
+
                             <div class="form-group <?php echo !empty(form_error('apellidos')) ? 'has-error':'';?>">
                                 <label for="apellidoPaterno">apellidoPaterno:</label>
                                 <input type="text" class="form-control" id="apellidoPaterno" name="apellidoPaterno" value="<?php echo set_value('apellidoPaterno');?>">

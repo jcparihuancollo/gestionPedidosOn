@@ -4,7 +4,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-        Taxi
+        Usuario
         <small>Editar</small>
         </h1>
     </section>
@@ -25,7 +25,7 @@
                         <form action="<?php echo base_url();?>mantenimiento/usuarios/update" method="POST">
                             <input type="hidden" name="idUsuario" value="<?php echo $usuario->idUsuario;?>">
                             
-                            }<div class="form-group <?php echo !empty(form_error('nombres')) ? 'has-error':'';?>">
+                            <div class="form-group <?php echo !empty(form_error('nombres')) ? 'has-error':'';?>">
                                 <label for="nombres">Nombre:</label>
                                 <input type="text" class="form-control" id="nombres" name="nombres" value="<?php echo !empty(form_error('nombres')) ? set_value('nombres'):$usuario->nombres?>">
                                 <?php echo form_error("nombres","<span class='help-block'>","</span>");?>
@@ -64,23 +64,23 @@
                                 <label for="rol">Rol:</label>
                                 <select name="rol" id="rol" class="form-control">
                                     <?php foreach($roles as $rol):?>
-                                        <?php if($rol->id == $rol->idRol):?>
-                                        <option value="<?php echo $rol->id?>" selected><?php echo $rol->nombre;?></option>
+                                        <?php if($rol->idRol == $rol->idRol):?>
+                                        <option value="<?php echo $rol->idRol?>" selected><?php echo $rol->nombre;?></option>
                                     <?php else:?>
-                                        <option value="<?php echo $rol->id?>"><?php echo $rol->nombre;?></option>
+                                        <option value="<?php echo $rol->idRol?>"><?php echo $rol->nombre;?></option>
                                         <?php endif;?>
                                     <?php endforeach;?>
                                 </select>
                             </div>
 
                              <div class="form-group">
-                                <label for="nombreRes">Restaurante</label>
-                                <select name="nombreRes" id="nombreRes" class="form-control">
-                                    <?php foreach($restaurantes as $nombreRes):?>
-                                        <?php if($nombreRes->id == $nombreRes->idRestaurante):?>
-                                        <option value="<?php echo $nombreRes->idRestaurante?>" selected><?php echo $nombreRes->nombre  ;?></option>
+                                <label for="restaurantes">Restaurantess</label>
+                                <select name="restaurante" id="restaurante" class="form-control">
+                                    <?php foreach($restaurantes as $restaurante):?>
+                                        <?php if($restaurante->idRestaurante == $restaurante->idRestaurante):?>
+                                        <option value="<?php echo $restaurante->idRestaurante?>" selected><?php echo $restaurante->nombre  ;?></option>
                                          <?php else:?>
-                                        <option value="<?php echo $nombreRes->id?>"><?php echo $nombreRes->nombre;?></option>
+                                        <option value="<?php echo $restaurante->id?>"><?php echo $restaurante->nombre;?></option>
                                         <?php endif;?>
                                     <?php endforeach;?>
                                 </select>

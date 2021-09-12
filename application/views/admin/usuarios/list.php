@@ -49,9 +49,9 @@
                                             <td><?php echo $usuario->nombreUsuario;?></td>
                                             <td><?php echo $usuario->contrasena;?></td>
                                             <td><?php echo $usuario->rol;?></td>
-                                            <td><?php echo $usuario->nombreRes;?></td>
+                                            <td><?php echo $usuario->restaurante;?></td>
 
-                                                  <?php $datausuarios = $usuario->nombres."*".$usuario->apellidoPaterno."*".$usuario->celular."*".$usuario->email."*".$usuario->nombreUsuario."*".$usuario->contrasena."*".$usuario->rol."*".$usuario->nombreRes;?> 
+                                                  <?php $datausuarios = $usuario->nombres."*".$usuario->apellidoPaterno."*".$usuario->celular."*".$usuario->email."*".$usuario->nombreUsuario."*".$usuario->fotoUsuario."*".$usuario->contrasena."*".$usuario->rol."*".$usuario->restaurante;?> 
                                          
                                             <td>
                                                 <div class="btn-group">
