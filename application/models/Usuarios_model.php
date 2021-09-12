@@ -30,7 +30,7 @@ class Usuarios_model extends CI_Model {
 
 
 	public function getUsuarios(){
-		$this->db->select("u.*,r.nombre as rol, re.nombre as nombreRes");
+		$this->db->select("u.*,r.nombre as rol, re.nombre as restaurante");
 		$this->db->from("usuario u");
 		$this->db->join("rol r","u.idRol = r.idRol");
 		$this->db->join("restaurante re","u.idRestaurante = re.idRestaurante");

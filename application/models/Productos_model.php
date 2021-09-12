@@ -4,9 +4,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Productos_model extends CI_Model {
 
 	public function getProductos(){
-		$this->db->select("p.*,c.nombre as categoria");
+		$this->db->select("p.*,c.nombre as categoria, re.nombre as nombreRes");
 		$this->db->from("producto p");
 		$this->db->join("categoria c","p.idCategoria = c.idCategoria");
+		$this->db->join("restaurante re","p.idRestaurante = re.idRestaurante");
 		$this->db->where("p.estado","1");
 		$resultados = $this->db->get();
 		return $resultados->result();
