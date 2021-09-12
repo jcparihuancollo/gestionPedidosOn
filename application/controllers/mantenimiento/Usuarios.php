@@ -41,27 +41,30 @@ class Usuarios extends CI_Controller {
 
 	public function store(){
 		$nombres = $this->input->post("nombres");
-		$apellidos = $this->input->post("apellidoPaterno");
-		$telefono = $this->input->post("celular");
+		$apellidoPaterno = $this->input->post("apellidoPaterno");
+		$celular = $this->input->post("celular");
 		$email = $this->input->post("email");
-		$username = $this->input->post("nombreUsuario");
-		$password = $this->input->post("contrasena");
-		$roles = $this->input->post("roles");
-		$restaurante = $this->input->post("");
+		$fotoUsuario=$this->input->post("fotoUsuario");
+		$nombreUsuario = $this->input->post("nombreUsuario");
+		$contrasena = $this->input->post("contrasena");
+		$rol = $this->input->post("rol");
+		$restaurante = $this->input->post("nombreRes");
 
 		
-		$this->form_validation->set_rules("nombreUsuario","nombreUsuario","required|is_unique[usuarios.roles]");
+		$this->form_validation->set_rules("nombreUsuario","nombreUsuario","required|is_unique[usuario.idRol]");
 		$this->form_validation->set_rules("contrasena","contrasena","required");
 		
 		if ($this->form_validation->run()) {
 			$data  = array(
 				
 				'nombres' => $nombres,
+				'apellidoPaterno'=>$apellidoPaterno,
 				'celular' => $celular,
 				'email' => $email,
 				'nombreUsuario' => $nombreUsuario,
 				'contrasena' => $contrasena,
-				'rol_id' => $rol,
+				'idRol' => $rol,
+				'idRestaurante' => $restaurante,
 				'estado' => "1"
 			);
 
@@ -93,23 +96,24 @@ class Usuarios extends CI_Controller {
 	}
 
 	public function update(){
-		$idusuarios = $this->input->post("idusuario");
+		$idUsuario = $this->input->post("idUsuario");
 		$nombres = $this->input->post("nombres");
-		$apellidos = $this->input->post("apellidoPaterno");
-		$telefono = $this->input->post("celular");
+		$apellidoPaterno = $this->input->post("apellidoPaterno");
+		$celular = $this->input->post("celular");
+		$fotoUsuario = $this->input->post("fotoUsuario");
 		$email = $this->input->post("email");
-		$username = $this->input->post("nombreUsuario");
-		$password = $this->input->post("contrasena");
+		$nombreUsuario = $this->input->post("nombreUsuario");
+		$contrasena = $this->input->post("contrasena");
 
 		$rol = $this->input->post("rol");
 
-		$usuariosActual = $this->Usuarios_model->getUsuarios($idusuarios);
+		$usuariosActual = $this->Usuarios_model->getUsuarios($idUsuario);
 
-		if ($rol == $usuariosActual->codigo) {
+		if ($rol == $usuariosActual->idUsuario) {
 			$is_unique = '';
 		}
 		else{
-			$is_unique = '|is_unique[usernames.rol]';
+			$is_unique = '|is_unique[nombreUsuario.rol]';
 		}
 
 		$this->form_validation->set_rules("rol","rol","required".$is_unique);
@@ -121,12 +125,12 @@ class Usuarios extends CI_Controller {
 		if ($this->form_validation->run()) {
 			$data  = array(
 				'nombres' => $nombres, 
-				'apellidos' => $apellidos,
-				'telefono' => $telefono,
+				'apellidoPaterno' => $apellidoPaterno,
+				'celular' => $celular,
 				'email' => $email,
-				'username' => $username,
-				'password' => $password,
-				'rol_id' => $rol,
+				'nombreUsuario' => $nombreUsuario,
+				'contrasena' => $contrasena,
+				'idRol' => $rol,
 			);
 			if ($this->Usuarios_model->update($idUsuario,$data)) {
 				redirect(base_url()."mantenimiento/usuarios");
@@ -136,7 +140,7 @@ class Usuarios extends CI_Controller {
 				redirect(base_url()."mantenimiento/productos/edit/".$idUsuario);
 			}
 		}else{
-			$this->edit($idusuarios);
+			$this->edit($idUsuario);
 		}
 
 		
