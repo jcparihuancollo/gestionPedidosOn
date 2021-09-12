@@ -4,7 +4,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-        CLIENTE
+        Categoria
         <small>Listado</small>
         </h1>
     </section>
@@ -15,7 +15,7 @@
             <div class="box-body">
                 <div class="row">
                     <div class="col-md-12">
-                        <a href="<?php echo base_url();?>mantenimiento/categorias/add" class="btn btn-primary btn-flat"><span class="fa fa-plus"></span> Agregar CLIENTE</a>
+                        <a href="<?php echo base_url();?>mantenimiento/categorias/add" class="btn btn-primary btn-flat"><span class="fa fa-plus"></span> Agregar Categoria</a>
                     </div>
                 </div>
                 <hr>
@@ -24,9 +24,9 @@
                         <table id="example1" class="table table-bordered table-hover">
                             <thead>
                                 <tr>
-                                    <th>#</th>
+                                   
                                     <th>Nombre</th>
-                                    <th>Apellido</th>
+                                    <th>Descripcion</th>
                                     <th>opciones</th>
                                 </tr>
                             </thead>
@@ -34,19 +34,21 @@
                                 <?php if(!empty($categorias)):?>
                                     <?php foreach($categorias as $categoria):?>
                                         <tr>
-                                            <td><?php echo $categoria->id;?></td>
+                                            
                                             <td><?php echo $categoria->nombre;?></td>
                                             <td><?php echo $categoria->descripcion;?></td>
                                             <td>
                                                 <div class="btn-group">
-                                                    <button type="button" class="btn btn-info btn-view" data-toggle="modal" data-target="#modal-default" value="<?php echo $categoria->id;?>">
+                                                  
+                                                    <button type="button" class="btn btn-info btn-view" data-toggle="modal" data-target="#modal-default" value="<?php echo $categoria->idCategoria;?>">
                                                         <span class="fa fa-search"></span>
                                                     </button>
-                                                    <a href="<?php echo base_url()?>mantenimiento/categorias/edit/<?php echo $categoria->id;?>" class="btn btn-warning"><span class="fa fa-pencil"></span></a>
-                                                    <a href="<?php echo base_url();?>mantenimiento/categorias/delete/<?php echo $categoria->id;?>" class="btn btn-danger btn-remove"><span class="fa fa-remove"></span></a>
+                                                  
+                                                    <a href="<?php echo base_url()?>mantenimiento/categorias/edit/<?php echo $categoria->idCategoria;?>" class="btn btn-warning"><span class="fa fa-pencil"></span></a>
+                                                  
+                                                    <a href="<?php echo base_url();?>mantenimiento/categorias/delete/<?php echo $categoria->idCategoria;?>" class="btn btn-danger btn-remove"><span class="fa fa-remove"></span></a>
 
-                                                    <a href="<?php echo base_url();?>mantenimiento/categorias/deletefisico/<?php echo $categoria->id;?>" class="btn btn-danger btn-remove"><span class="fa fa-remove"></span></a>
-
+                                                    
                                                 </div>
                                             </td>
                                         </tr>

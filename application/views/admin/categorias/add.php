@@ -4,7 +4,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-        CLIENTE
+        CATEGORIA
         <small>Nuevo</small>
         </h1>
     </section>
@@ -28,10 +28,12 @@
                                 <input type="text" class="form-control" id="nombre" name="nombre">
                                 <?php echo form_error("nombre","<span class='help-block'>","</span>");?>
                             </div>
+                           
                             <div class="form-group">
-                                <label for="descripcion">Apellido:</label>
+                                <label for="descripcion">Descripcion:</label>
                                 <input type="text" class="form-control" id="descripcion" name="descripcion">
                             </div>
+                           
                             <div class="form-group">
                                 <button type="submit" class="btn btn-success btn-flat">Guardar</button>
                             </div>
