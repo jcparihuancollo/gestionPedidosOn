@@ -32,26 +32,28 @@ class Productos extends CI_Controller {
 	}
 
 	public function store(){
-		$codigo = $this->input->post("codigo");
+	
 		$nombre = $this->input->post("nombre");
 		$descripcion = $this->input->post("descripcion");
 		$precio = $this->input->post("precio");
-		$stock = $this->input->post("stock");
+		$fotoProducto = $this->input->post("fotoProducto");
 		$categoria = $this->input->post("categoria");
 
-		$this->form_validation->set_rules("codigo","Codigo","required|is_unique[productos.codigo]");
+		//$this->form_validation->set_rules("codigo","Codigo","required|is_unique[productos.codigo]");
 		$this->form_validation->set_rules("nombre","Nombre","required");
 		$this->form_validation->set_rules("precio","Precio","required");
-		$this->form_validation->set_rules("stock","Stock","required");
+		$this->form_validation->set_rules("descripcion","descripcion","required");
+
+		$this->form_validation->set_rules("fotoProducto","fotoProducto","required");
 
 		if ($this->form_validation->run()) {
 			$data  = array(
-				'codigo' => $codigo, 
+			//	'codigo' => $codigo, 
 				'nombre' => $nombre,
 				'descripcion' => $descripcion,
 				'precio' => $precio,
-				'stock' => $stock,
-				'categoria_id' => $categoria,
+				'fotoProducto' => $fotoProducto,
+				'idCategoria' => $categoria,
 				'estado' => "1"
 			);
 

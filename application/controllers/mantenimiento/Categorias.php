@@ -34,7 +34,7 @@ class Categorias extends CI_Controller {
 		$nombre = $this->input->post("nombre");
 		$descripcion = $this->input->post("descripcion");
 
-		$this->form_validation->set_rules("nombre","Nombre","required|is_unique[categorias.nombre]");
+		$this->form_validation->set_rules("nombre","Nombre","required|is_unique[categoria.nombre]");
 
 		if ($this->form_validation->run()==TRUE) {
 
@@ -80,7 +80,7 @@ class Categorias extends CI_Controller {
 		if ($nombre == $categoriaactual->nombre) {
 			$is_unique = "";
 		}else{
-			$is_unique = "|is_unique[categorias.nombre]";
+			$is_unique = "|is_unique[categoria.nombre]";
 
 		}
 
@@ -121,12 +121,6 @@ class Categorias extends CI_Controller {
 		echo "mantenimiento/categorias";
 	}
 
-	public function deletefisico($id){
-		$data  = array(
-			'estado' => "0", 
-		);
-		$this->Categorias_model->delete($id);
-		echo "mantenimiento/categorias";
-	}
+	
 
 }
