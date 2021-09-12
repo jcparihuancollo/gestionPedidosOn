@@ -26,9 +26,7 @@ class Usuarios extends CI_Controller {
 	}
 	public function add(){
 		$data=array( 
-			"roles" => $this->Roles_model->getRoles()
-		);
-		$data1=array(
+			"roles" => $this->Roles_model->getRoles(),
 			"restaurantes" =>$this->Restaurantes_model->getRestaurantes()
 		);
 		
@@ -85,7 +83,8 @@ class Usuarios extends CI_Controller {
 	public function edit($id){
 		$data =array( 
 			"usuario" => $this->Usuarios_model->getUsuario($id),
-			"rol" => $this->Roles_model->getRol($id)
+			"rol" => $this->Roles_model->getRol($id),
+			"restaurante" => $this->Restaurantes_model->getRestaurante($id)
 		);
 		$this->load->view("layouts/header");
 		$this->load->view("layouts/aside");
