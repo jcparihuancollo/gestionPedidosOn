@@ -3,7 +3,7 @@
    <div class="pull-right hidden-xs">
                 <b>Version</b>1.0.0
              </div> 
-            <strong>Copyright &copy; 2019 <a href="#">App Order Now</a>.</strong> All rights
+            <strong>Copyright &copy; 2019 <a href="#">App ON</a>.</strong> All rights
             reserved.
         </footer>
     </div>
