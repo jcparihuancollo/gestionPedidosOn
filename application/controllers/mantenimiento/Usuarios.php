@@ -46,7 +46,10 @@ class Usuarios extends CI_Controller {
 		$email = $this->input->post("email");
 		$fotoUsuario=$this->input->post("fotoUsuario");
 		$nombreUsuario = $this->input->post("nombreUsuario");
-		$contrasena = $this->input->post("contrasena");
+		//$contrasena = $this->input->post("contrasena");
+
+		$contrasena = md5($this->input->post('contrasena'));
+
 		$rol = $this->input->post("rol");
 		$restaurante = $this->input->post("nombreRes");
 

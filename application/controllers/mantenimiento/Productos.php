@@ -7,12 +7,20 @@ class Productos extends CI_Controller {
 		parent::__construct();
 		$this->load->model("Productos_model");
 		$this->load->model("Categorias_model");
+		$this->load->model("Restaurantes_model");
+		$this->load->model("Usuarios_model");
 	}
 
 	public function index()
 	{
+		
+
+		$idRestaurante=2;
+		//$idRestaurante=1;
+		//$idRestaurante=$this->Restaurantes_model->getRestaurante(2);
 		$data  = array(
-			'productos' => $this->Productos_model->getProductos(), 
+			'productos' => $this->Productos_model->getProductos($idRestaurante), 
+			
 		);
 		$this->load->view("layouts/header");
 		$this->load->view("layouts/aside");
@@ -22,8 +30,14 @@ class Productos extends CI_Controller {
 
 	}
 	public function add(){
+
+		//$color = 'azul';
+		//$data=array('color' => $color)
+    	//	$this->load->view("vista_view", array('color' => $color));
 		$data =array( 
-			"categorias" => $this->Categorias_model->getCategorias()
+			"categorias" => $this->Categorias_model->getCategorias(),
+			"restaurantes" =>$this->Restaurantes_model->getRestaurantes()
+			
 		);
 		$this->load->view("layouts/header");
 		$this->load->view("layouts/aside");
@@ -32,19 +46,26 @@ class Productos extends CI_Controller {
 	}
 
 	public function store(){
+		//		$restaurante=$this->Restaurantes_model->getRestaurantes();
+		//		$idRestaurante=$restaurante->idRestaurante;
+		//$idRestaurante=1;
 	
-		$nombre = $this->input->post("nombre");
+ 		$nombre = $this->input->post("nombre");
 		$descripcion = $this->input->post("descripcion");
 		$precio = $this->input->post("precio");
 		$fotoProducto = $this->input->post("fotoProducto");
 		$categoria = $this->input->post("categoria");
+		//$idRestaurante = $this->input->post("restaurante");
+	
+
+	//	$restaurante=
 
 		//$this->form_validation->set_rules("codigo","Codigo","required|is_unique[productos.codigo]");
 		$this->form_validation->set_rules("nombre","Nombre","required");
 		$this->form_validation->set_rules("precio","Precio","required");
 		$this->form_validation->set_rules("descripcion","descripcion","required");
 
-		$this->form_validation->set_rules("fotoProducto","fotoProducto","required");
+		//$this->form_validation->set_rules("fotoProducto","fotoProducto","required");
 
 		if ($this->form_validation->run()) {
 			$data  = array(
@@ -54,7 +75,9 @@ class Productos extends CI_Controller {
 				'precio' => $precio,
 				'fotoProducto' => $fotoProducto,
 				'idCategoria' => $categoria,
-				'estado' => "1"
+				//'idRestaurante'=>$idRestaurante;
+				'idRestaurante'=>2
+				//'estado' => "1"
 			);
 
 			if ($this->Productos_model->save($data)) {
