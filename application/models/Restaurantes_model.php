@@ -15,10 +15,13 @@ class Restaurantes_model extends CI_Model {
 
 	public function getRestaurante($id){
 		$this->db->where("idRestaurante",$id);
+		
 		$resultado = $this->db->get("restaurante");
 		return $resultado->row();
 
 	}
+
+
 	public function save($data){
 		return $this->db->insert("restaurante",$data);
 	}

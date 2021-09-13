@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Sistema ORDER NOW | Dashboard</title>
+    <title>Sistema ON! | Dashboard</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
@@ -27,7 +27,7 @@
                 <!-- mini logo for sidebar mini 50x50 pixels -->
                 <span class="logo-mini"><b>S</b>V</span>
                 <!-- logo for regular state and mobile devices -->
-                <span class="logo-lg"><b>ORDER NOW</b></span>
+                <span class="logo-lg"><b>ON</b></span>
             </a>
             <!-- Header Navbar: style can be found in header.less -->
             <nav class="navbar navbar-static-top">
@@ -35,7 +35,7 @@
                 <!-- Sidebar toggle button-->
                 <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
                     <span class="sr-only">Toggle navigation</span>
-                    <span class="sr-only">Toggle naidation</span>
+                    <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>  
@@ -47,14 +47,11 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                           
                             <img src="<?php echo base_url()?>assets/template/dist/img/user2-160x160.jpg" class="
-
                             user-image" alt="User Image">
-                                 <span class="hidden-xs"><?php echo $this->session->userdata("id")?></span> 
-                                    <span class="hidden-xs"><?php echo $this->session->userdata("email")?></span> 
-                                    <span class="hidden-xs"><?php echo $this->session->userdata("nombres")?></span>
-                             
-                                    <span class="hidden-xs"><?php echo $this->session->userdata("idRol")?></span> 
-                                    <span class="hidden-xs"><?php echo $this->session->userdata("apellido")?></span> 
+                                   
+                                    <span class="hidden-xs"><?php echo $this->session->userdata("idUsuario")?></span> 
+                                    
+                                   
                                     <span class="hidden-xs"><?php echo $this->session->userdata("idRestaurante")?></span>
                             
                          </a>

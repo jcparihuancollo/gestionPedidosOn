@@ -46,7 +46,7 @@ class Auth extends CI_Controller {
 		else{
 			if($res->idRol ==5){ 
 				$data  = array(
-					'id' => $res->idUsuario, 
+					'idUsuario' => $res->idUsuario, 
 					'apellido' => $res->apellidoPaterno,
 					'idRol' => $res->idRol,
 					'email' => $res->email,

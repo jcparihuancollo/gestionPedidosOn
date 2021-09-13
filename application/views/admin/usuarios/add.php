@@ -60,9 +60,9 @@
                             </div>
                                <div class="form-group <?php echo !empty(form_error('contrasena')) ? 'has-error':'';?>">
                                 <label for="contrasena">contraseña</label>
-                                <input type="text" class="form-control" id="contrasena" name="contrasena" value="<?php echo set_value('contrasena');?>">
+                                <input type="password" class="form-control" id="contrasena" name="contrasena" value="<?php echo set_value('contrasena');?>">
                                 <?php echo form_error("contrasena","<span class='help-block'>","</span>");?>
-                            </div>
+                               </div>
                             
                               <div class="form-group">
                                 <label for="rol">Rol</label>

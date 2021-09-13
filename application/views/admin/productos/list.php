@@ -4,8 +4,8 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-        Productos
-        <small>Listado</small>
+        Productos de:   
+        <small>Listado:...:  </small>
         </h1>
     </section>
     <!-- Main content -->
@@ -30,7 +30,7 @@
                                     <th>descripcion</th>
                                     <th>foto Producto</th>
                                     <th>Categoría</th>
-                                    <th>Restaurante</th>
+                              
                                     <th>Opciones</th>
                                 </tr>
                             </thead>
@@ -38,12 +38,13 @@
                                 <?php if(!empty($productos)):?>
                                     <?php foreach($productos as $producto):?>
                                         <tr>
+
                                             <td><?php echo $producto->nombre;?></td>
                                             <td><?php echo $producto->precio;?></td>
                                             <td><?php echo $producto->descripcion;?></td>
                                             <td><?php echo $producto->fotoProducto;?></td>
                                             <td><?php echo $producto->categoria;?></td>
-                                            <td><?php echo $producto->nombreRes;?></td>
+                                            
   
 
                                             <?php $dataproducto = $producto->nombre."*".$producto->precio."*".$producto->descripcion."*".$producto->fotoProducto."*".$producto->categoria;?>
@@ -54,16 +55,22 @@
                                                         <span class="fa fa-search"></span>
                                                     </button>
                                                     
-                                                    <a href="<?php echo base_url()?>mantenimiento/productos/edit/<?php echo $producto->id;?>" class="btn btn-warning"><span class="fa fa-pencil"></span></a>
-                                                    <a href="<?php echo base_url();?>mantenimiento/productos/delete/<?php echo $producto->id;?>" class="btn btn-danger btn-remove"><span class="fa fa-remove"></span></a>
+                                                    <a href="<?php echo base_url()?>mantenimiento/productos/edit/<?php echo $producto->idProducto;?>" class="btn btn-warning"><span class="fa fa-pencil"></span></a>
+                                                    <a href="<?php echo base_url();?>mantenimiento/productos/delete/<?php echo $producto->idProducto;?>" class="btn btn-danger btn-remove"><span class="fa fa-remove"></span></a>
                                                 </div>
                                             
                                             </td>
                                         </tr>
                                     <?php endforeach;?>
                                 <?php endif;?>
+
+
                             </tbody>
                         </table>
+
+                       <p>id Usuario:</p> 
+
+                       <?php echo $this->session->userdata("idUsuario")?>
                     </div>
                 </div>
             </div>

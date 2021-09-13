@@ -14,7 +14,7 @@ class Productos extends CI_Controller {
 	public function index()
 	{
 		
-
+	//	$idRestaurante = $this->session->userdata("idUsuario")
 		$idRestaurante=2;
 		//$idRestaurante=1;
 		//$idRestaurante=$this->Restaurantes_model->getRestaurante(2);
@@ -55,7 +55,7 @@ class Productos extends CI_Controller {
 		$precio = $this->input->post("precio");
 		$fotoProducto = $this->input->post("fotoProducto");
 		$categoria = $this->input->post("categoria");
-		//$idRestaurante = $this->input->post("restaurante");
+		$idRestaurante = $this->input->post("restaurante");
 	
 
 	//	$restaurante=
@@ -76,7 +76,7 @@ class Productos extends CI_Controller {
 				'fotoProducto' => $fotoProducto,
 				'idCategoria' => $categoria,
 				//'idRestaurante'=>$idRestaurante;
-				'idRestaurante'=>2
+				'idRestaurante'=>$idRestaurante
 				//'estado' => "1"
 			);
 

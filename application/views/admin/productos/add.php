@@ -22,12 +22,14 @@
                                 
                              </div>
                         <?php endif;?>
+
+                       <?php $restaurante=$this->session->userdata("idRestaurante") ?>
                         <form action="<?php echo base_url();?>mantenimiento/productos/store" method="POST">
                            
                             <div class="form-group <?php echo !empty(form_error('nombre')) ? 'has-error':'';?>">
-                                <label for="nombre">Nombre:</label>
+                                <label for="nombre">Nombres:</label>
                                 <input type="text" class="form-control" id="nombre" name="nombre" value="<?php echo set_value('nombre');?>">
-                                <?php echo form_error("codigo","<span class='help-block'>","</span>");?>
+                                <?php echo form_error("nombre","<span class='help-block'>","</span>");?>
                             </div>
                            
                             <div class="form-group ">
@@ -55,11 +57,24 @@
                                     <?php endforeach;?>
                                 </select>
                             </div>
+
+
+                             <div class="form-group has-feedback">
+                                <label>restaurante</label>
+                                <input type="hidden" value="<?php echo $restaurante?>" class="form-control" placeholder="Teléfono" name="restaurante" >
+                                
+                            </div>
+
+                             
+
+
                            
                             <div class="form-group">
                                 <button type="submit" class="btn btn-success btn-flat">Guardar</button>
                             </div>
                         </form>
+
+                         <?php echo $restaurante ?>
                     </div>
                 </div>
             </div>

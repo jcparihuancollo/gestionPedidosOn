@@ -20,10 +20,11 @@
                             </span>
                         </a>
                         <ul class="treeview-menu">
+                             <?php $restaurante=$this->session->userdata("idRestaurante") ?>
                             <li><a href="<?php echo base_url();?>mantenimiento/restaurantes"><i class="fa fa-circle-o"></i> Restaurantes</a></li>
                             <li><a href="<?php echo base_url();?>mantenimiento/categorias"><i class="fa fa-circle-o"></i> Categoria de Productos</a></li>
                             <li><a href="<?php echo base_url();?>mantenimiento/clientes"><i class="fa fa-circle-o"></i> </a></li>
-                            <li><a href="<?php echo base_url(); ?>mantenimiento/productos"><i class="fa fa-circle-o"></i> Productos</a></li>
+                            <li><a href="<?php echo base_url();?>mantenimiento/productos"><i class="fa fa-circle-o"></i> Productos</a></li>
 
                             <li><a href="<?php echo base_url(); ?>mantenimiento/usuarios"><i class="fa fa-circle-o"></i> usuarios</a></li>
                         </ul>

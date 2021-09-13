@@ -46,7 +46,7 @@
                     </div>
 
                      <div class="col-xs-12">
-                        <a href="contactame.html">olvido su contraseña? </a>
+                        <a href="contactame.html">olviooo su contraseña? </a>
                     </div>
                     <!-- /.c
                     <!-- /.col -->
