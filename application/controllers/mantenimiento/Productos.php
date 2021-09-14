@@ -14,8 +14,9 @@ class Productos extends CI_Controller {
 	public function index()
 	{
 		
-	//	$idRestaurante = $this->session->userdata("idUsuario")
-		$idRestaurante=2;
+		//$idRestaurante = $this->session->userdata("idUsuario")
+		$idRestaurante=$this->input->get('pro');
+	//$idRestaurante=2;
 		//$idRestaurante=1;
 		//$idRestaurante=$this->Restaurantes_model->getRestaurante(2);
 		$data  = array(
