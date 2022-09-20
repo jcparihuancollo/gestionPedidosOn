@@ -1,4 +1,4 @@
-
+     
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -6,7 +6,15 @@
         <h1>
         Productos de:   
         <small>Listado:...:  </small>
+
         </h1>
+              
+        <h1>
+
+     
+
+        </h1>
+
     </section>
     <!-- Main content -->
     <section class="content">
@@ -15,7 +23,8 @@
             <div class="box-body">
                 <div class="row">
                     <div class="col-md-12">
-                        <a href="<?php echo base_url();?>mantenimiento/productos/add" class="btn btn-primary btn-flat"><span class="fa fa-plus"></span> Agregar Producto</a>
+                        <a href="<?php echo base_url();?>mantenimiento/productos/add" class="btn btn-primary btn-flat"><span class="fa fa-plus"></span> Agregar Productosssss</a>
+                        <?php  ?>
                     </div>
                 </div>
                 <hr>
@@ -45,9 +54,8 @@
                                             <td><?php echo $producto->fotoProducto;?></td>
                                             <td><?php echo $producto->categoria;?></td>
                                             
-  
+                                            <?php $dataproducto = $producto->nombre."*".$producto->precio."*".$producto->descripcion."*".$producto->categoria;?>        
 
-                                            <?php $dataproducto = $producto->nombre."*".$producto->precio."*".$producto->descripcion."*".$producto->fotoProducto."*".$producto->categoria;?>
                                             <td>
                                                 <div class="btn-group">
                                                     
@@ -71,6 +79,19 @@
                        <p>id Usuario:</p> 
 
                        <?php echo $this->session->userdata("idUsuario")?>
+
+                        <p>id Restaurante:</p>
+                        <?php echo $this->session->userdata("idRestaurante")?>
+                        
+
+                     
+
+                      
+
+              
+
+                          
+
                     </div>
                 </div>
             </div>
@@ -88,7 +109,7 @@
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Informacion de la Categoria</h4>
+        <h4 class="modal-title">Informacion del Producto</h4>
       </div>
       <div class="modal-body">
         
