@@ -44,6 +44,15 @@ class Auth extends CI_Controller {
 		}
 
 		else{
+
+				$idRes=$res->idRestaurante;
+
+				$idRol=$res->idRol;
+				
+				$resNom = $this->Usuarios_model->getRestauranteNombre($idRes);
+				$resRol = $this->Usuarios_model->getRolNombre($idRol);
+
+
 			if($res->idRol ==5){ 
 				$data  = array(
 					'idUsuario' => $res->idUsuario, 
@@ -52,6 +61,10 @@ class Auth extends CI_Controller {
 					'email' => $res->email,
 					'nombres' => $res->nombres,
 					'idRestaurante'=>$res->idRestaurante,
+					'nombreRestaurante'=>$resNom->nombre,
+					'rol'=>$resRol->nombre,
+
+
 					'login' => true
 				);
 						
@@ -60,7 +73,26 @@ class Auth extends CI_Controller {
 			
 			}
 			else{
-					if($res->rol_id == 6){
+			if($res->idRol ==6){ 
+				$data  = array(
+					'idUsuario' => $res->idUsuario, 
+					'apellido' => $res->apellidoPaterno,
+					'idRol' => $res->idRol,
+					'email' => $res->email,
+					'nombres' => $res->nombres,
+					'idRestaurante'=>$res->idRestaurante,
+					'nombreRestaurante'=>$resNom->nombre,
+					'rol'=>$resRol->nombre,
+
+					'login' => true
+				);
+						
+				$this->session->set_userdata($data);
+				redirect(base_url()."dashboard");
+			
+			}
+
+				/*	if($res->rol_id == 6){
 							$data  = array(
 						'id' => $res->id, 
 						'nombre' => $res->nombres,
@@ -70,20 +102,31 @@ class Auth extends CI_Controller {
 					);
 					//echo("rol id 2");
 					$this->session->set_userdata($data);
-						redirect(base_url()."Dashboard/index2");
-					}
+						redirect(base_url()."Dashboard");
+
+
+					}*/
+					
 					else{
-						$data  = array(
-					'id' => $res->id, 
-					'nombre' => $res->nombres,
-					'rol' => $res->rol_id,
-					'es' => $res->email,
+						if($res->idRol ==7){
+					$data  = array(
+					'idUsuario' => $res->idUsuario, 
+					'apellido' => $res->apellidoPaterno,
+					'idRol' => $res->idRol,
+					'email' => $res->email,
+					'nombres' => $res->nombres,
+					'idRestaurante'=>$res->idRestaurante,
+					'nombreRestaurante'=>$resNom->nombre,
+					'rol'=>$resRol->nombre,
+
 					'login' => true
 				);
-					//echo("rol id 2");
-						$this->session->set_userdata($data);
-						redirect(base_url()."Dashboard/index2");
+						
+				$this->session->set_userdata($data);
+				redirect(base_url()."dashboard");
 					}
+				
+				}
 
 			}
 
