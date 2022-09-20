@@ -84,7 +84,7 @@
                         <?php echo $this->session->userdata("idRestaurante")?>
                         
 
-                     
+                         <p>NOMBRE DEL RESTAURANTE : <?php echo $producto->nombreRes;?></p>
 
                       
 
