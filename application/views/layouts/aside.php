@@ -66,6 +66,8 @@
                             <li><a href="<?php echo base_url();?>mantenimiento/categorias"><i class="fa fa-circle-o"></i> Categoria de Puctos</a></li>
                             
                             <li><a href="<?php echo base_url('mantenimiento/productos?pro='.$restaurante);?>"><i class="fa fa-circle-o"></i> Productos</a></li> 
+
+                            <li><a href="<?php echo base_url('mantenimiento/pedidos?pe='.$restaurante);?>"><i class="fa fa-circle-o"></i> Pedidos</a></li> 
                         </ul>
 
                     <?php }  
