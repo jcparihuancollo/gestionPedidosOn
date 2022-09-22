@@ -39,6 +39,23 @@ class Usuarios_model extends CI_Model {
 		return $resultados->result();
 	}
 
+	public function getRestauranteNombre($idRes){
+		$this->db->select("re.nombre");
+		$this->db->from("usuario u");
+		$this->db->join("restaurante re","u.idRestaurante = re.idRestaurante");
+		$this->db->where("re.idRestaurante",$idRes);
+		$resultado = $this->db->get("usuario");
+		return $resultado->row();
+	}
+	public function getRolNombre($idRol){
+		$this->db->select("ro.nombre");
+		$this->db->from("usuario u");
+		$this->db->join("rol ro","u.idRol = ro.idRol");
+		$this->db->where("ro.idRol",$idRol);
+		$resultado = $this->db->get("usuario");
+		return $resultado->row();
+	}
+
 	public function getUsuario($id){
 		$this->db->where("idUsuario",$id);
 		$resultado = $this->db->get("usuario");

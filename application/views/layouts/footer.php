@@ -3,7 +3,7 @@
    <div class="pull-right hidden-xs">
                 <b>Version</b>1.0.0
              </div> 
-            <strong>Copyright &copy; 2019 <a href="#">App ON</a>.</strong> All rights
+            <strong>Copyright &copy; 2019 <a href="#">App ORDER NOW!</a>.</strong> All rights
             reserved.
         </footer>
     </div>
@@ -39,18 +39,22 @@ $(document).ready(function () {
             }
         });
     });
-    $(".btn-view-producto").on("click", function(){
+    
+
+        $(".btn-view-producto").on("click", function(){
         var producto = $(this).val(); 
         //alert(cliente);
         var infoproducto = producto.split("*");
-        html = "<p><strong>Codigo:</strong>"+infoproducto[1]+"</p>"
-        html += "<p><strong>Nombre:</strong>"+infoproducto[2]+"</p>"
-        html += "<p><strong>Descripcion:</strong>"+infoproducto[3]+"</p>"
-        html += "<p><strong>Precio:</strong>"+infoproducto[4]+"</p>"
-        html += "<p><strong>Stock:</strong>"+infoproducto[5]+"</p>"
-        html += "<p><strong>Categoria:</strong>"+infoproducto[6]+"</p>";
+      
+        html = "<p><strong>Nombre:</strong> "+infoproducto[0]+"</p>"
+        html += "<p><strong>Precio:</strong>    "+infoproducto[1]+"</p>"
+        html += "<p><strong>Descripcion:</strong>   "+infoproducto[2]+"</p>"
+     
+        
+        html += "<p><strong>Categoria:</strong>    "+infoproducto[3]+"</p>";
         $("#modal-default .modal-body").html(html);
     });
+
   
     $(".btn-view-cliente").on("click", function(){
         var cliente = $(this).val(); 

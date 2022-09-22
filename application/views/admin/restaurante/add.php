@@ -22,13 +22,13 @@
                                 
                              </div>
                         <?php endif;?>
-                        <form action="<?php echo base_url();?>mantenimiento/restaurantes/store" method="POST">
+                        <form action="<?php echo base_url();?>mantenimiento/restaurantes/store" method="POST" enctype="multipart/form-data">
                          
                             <div class="form-group <?php echo !empty(form_error('nombre')) ? 'has-error':'';?>">
                                 <label for="nombre">Nombre:</label>
                                 <input type="text" class="form-control" id="nombre" name="nombre" value="<?php echo set_value('nombre');?>">
                                 <?php echo form_error("nombre","<span class='help-block'>","</span>");?>
-                            </div>
+                            </div> 
                             <div class="form-group ">
                                 <label for="Teléfono">Teléfono:</label>
                                 <input type="text" class="form-control" id="telefono" name="telefono">
@@ -60,6 +60,15 @@
                                 <input type="text" class="form-control" id="horarioCierre" name="horarioCierre" value="<?php echo set_value('precio');?>">
                                 <?php echo form_error("horarioCierre","<span class='help-block'>","</span>");?>
                             </div>
+
+                            <div class="form-group">
+                                <label for="Descripcion">Foto Restaurante</label>
+                                <input type="file" id="txtimagen" name="txtimagen" class="form-control">
+                                
+
+                            </div>
+
+                        
 
                            <div class="form-group">
                                 <button type="submit" class="btn btn-success btn-flat">Guardar</button>

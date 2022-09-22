@@ -24,6 +24,7 @@
                         <?php endif;?>
 
                        <?php $restaurante=$this->session->userdata("idRestaurante") ?>
+
                         <form action="<?php echo base_url();?>mantenimiento/productos/store" method="POST">
                            
                             <div class="form-group <?php echo !empty(form_error('nombre')) ? 'has-error':'';?>">

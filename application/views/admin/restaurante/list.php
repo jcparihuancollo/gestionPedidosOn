@@ -51,20 +51,26 @@
                                             <td><?php echo $restaurante->direccion;?></td>
                                             <td><?php echo $restaurante->horarioApertura;?></td>
                                             <td><?php echo $restaurante->horarioCierre;?></td>
-                                            <td><?php echo $restaurante->fotoRestaurante;?></td>
+                                            <td>
+
+                                                <img src="<?php echo base_url()?>uploads/restaurantes/<?php echo $restaurante->fotoRestaurante; ?>">
+                                            </td>
 
                                             
 
                                             <?php $datarestaurante = $restaurante->nombre."*".$restaurante->telefono."*".$restaurante->celular."*".$restaurante->direccion."*".$restaurante->horarioApertura."*".$restaurante->horarioCierre."*".$restaurante->fotoRestaurante;?>
                                             <td>
                                                 <div class="btn-group">
-                                                    <button type="button" class="btn btn-info btn-view-producto" data-toggle="modal" data-target="#modal-default" value="<?php echo $datarestaurante;?>">
+                                                    <button type="button" class="btn btn-info btn-view-cliente" data-toggle="modal" data-target="#modal-default" value="<?php echo $datarestaurante;?>">
                                                         <span class="fa fa-search"></span>
                                                     </button>
 
                                                     <a href="<?php echo base_url()?>mantenimiento/restaurantes/edit/<?php echo $restaurante->idRestaurante;?>" class="btn btn-warning"><span class="fa fa-pencil"></span></a>
 
                                                     <a href="<?php echo base_url();?>mantenimiento/restaurantes/delete/<?php echo $restaurante->idRestaurante;?>" class="btn btn-danger btn-remove"><span class="fa fa-remove"></span></a>
+
+                                                    
+
                                                 </div>
                                             </td>
 

@@ -15,16 +15,23 @@ class Productos extends CI_Controller {
 	{
 		
 		//$idRestaurante = $this->session->userdata("idUsuario")
+
 		$idRestaurante=$this->input->get('pro');
+
+
 	//$idRestaurante=2;
 		//$idRestaurante=1;
 		//$idRestaurante=$this->Restaurantes_model->getRestaurante(2);
 		$data  = array(
 			'productos' => $this->Productos_model->getProductos($idRestaurante), 
+
 			
 		);
+			
+		
+
 		$this->load->view("layouts/header");
-		$this->load->view("layouts/aside");
+		//$this->load->view("layouts/aside");
 		$this->load->view("admin/productos/list",$data);
 		
 		$this->load->view("layouts/footer");
@@ -50,14 +57,15 @@ class Productos extends CI_Controller {
 		//		$restaurante=$this->Restaurantes_model->getRestaurantes();
 		//		$idRestaurante=$restaurante->idRestaurante;
 		//$idRestaurante=1;
-	
+		//$idRestaur=$this->input->get('pro');
+
  		$nombre = $this->input->post("nombre");
 		$descripcion = $this->input->post("descripcion");
 		$precio = $this->input->post("precio");
 		$fotoProducto = $this->input->post("fotoProducto");
 		$categoria = $this->input->post("categoria");
 		$idRestaurante = $this->input->post("restaurante");
-	
+	//	$idRestaurant=$idRestaur;	
 
 	//	$restaurante=
 
@@ -77,12 +85,14 @@ class Productos extends CI_Controller {
 				'fotoProducto' => $fotoProducto,
 				'idCategoria' => $categoria,
 				//'idRestaurante'=>$idRestaurante;
-				'idRestaurante'=>$idRestaurante
-				//'estado' => "1"
+				'idRestaurante'=>$idRestaurante,
+				'estado' => "1"
 			);
-
+			
 			if ($this->Productos_model->save($data)) {
-				redirect(base_url()."mantenimiento/productos");
+			
+				redirect(base_url('mantenimiento/productos?pro='.$idRestaurante)."mantenimiento/productos");
+				
 			}
 			else{
 				$this->session->set_flashdata("error","No se pudo guardar la informacion");

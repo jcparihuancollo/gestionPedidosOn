@@ -21,7 +21,7 @@
 <body class="hold-transition login-page">
     <div class="login-box">
         <div class="login-logo">
-            <h2>ON!</h2>
+            <h2>ORDER NOW!</h2>
         </div>
         <!-- /.login-logo -->
         <div class="login-box-body">
@@ -31,6 +31,7 @@
                 <p><?php echo $this->session->flashdata("error")?></p>
               </div>
             <?php endif; ?>
+         
             <form action="<?php echo base_url();?>auth/login" method="post">
                 <div class="form-group has-feedback">
                     <input type="text" class="form-control" placeholder="Usuario" name="nombreUsuario">
@@ -46,7 +47,7 @@
                     </div>
 
                      <div class="col-xs-12">
-                        <a href="contactame.html">olviooo su contraseña? </a>
+                        <a href="contactame.html">olvido su contraseña? </a>
                     </div>
                     <!-- /.c
                     <!-- /.col -->

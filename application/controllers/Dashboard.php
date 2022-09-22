@@ -22,7 +22,7 @@ class Dashboard extends CI_Controller {
 	public function index2()
 	{
 		$this->load->view("layouts/header");
-		//$this->load->view("layouts/aside");
+		$this->load->view("layouts/aside");
 		$this->load->view("admin/cliente/vistaCliente");
 		$this->load->view("layouts/footer");
 

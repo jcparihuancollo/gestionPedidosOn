@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Sistema ON! | Dashboard</title>
+    <title>Sistema ORDER NOW! | Dashboard</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
@@ -17,6 +17,9 @@
     <!-- AdminLTE Skins. Choose a skin from the css/skins
     folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="<?php echo base_url();?>assets/template/dist/css/skins/_all-skins.min.css">
+       <link rel="stylesheet" href="<?php echo base_url();?>assets/template/bootstrap/css/fuentes.css">
+
+
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
     <!-- Site wrapper -->
@@ -27,7 +30,7 @@
                 <!-- mini logo for sidebar mini 50x50 pixels -->
                 <span class="logo-mini"><b>S</b>V</span>
                 <!-- logo for regular state and mobile devices -->
-                <span class="logo-lg"><b>ON</b></span>
+                <span class="logo-lg"><b>ORDER NOW!</b></span>
             </a>
             <!-- Header Navbar: style can be found in header.less -->
             <nav class="navbar navbar-static-top">
@@ -40,6 +43,10 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>  
                 </a>
+
+          
+
+
                 <div class="navbar-custom-menu">
                     <ul class="nav navbar-nav">
                         <!-- User Account: style can be found in dropdown.less -->
@@ -69,6 +76,7 @@
                     </ul>
                 </div>
             </nav>
+            
         </header>
     </div>
 </body>

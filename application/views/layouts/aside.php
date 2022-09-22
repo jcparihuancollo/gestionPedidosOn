@@ -12,6 +12,7 @@
                             <i class="fa fa-home"></i> <span>Inicio</span>
                         </a>
                     </li>
+                   
                     <li class="treeview">
                         <a href="#">
                             <i class="fa fa-cogs"></i> <span>Gestionar</span>
@@ -19,19 +20,70 @@
                                 <i class="fa fa-angle-left pull-right"></i>
                             </span>
                         </a>
-                        <ul class="treeview-menu">
-                             <?php $restaurante=$this->session->userdata("idRestaurante") ?>
+                         <?php $restaurante=$this->session->userdata("idRestaurante") ?>
+
+                       
+
+                         <?php
+                         $rol= $this->session->userdata("idRol");
+
+                          if($rol==5) { ?>   
+
+                         <ul class="treeview-menu">
+                             
                             <li><a href="<?php echo base_url();?>mantenimiento/restaurantes"><i class="fa fa-circle-o"></i> Restaurantes</a></li>
-                            <li><a href="<?php echo base_url();?>mantenimiento/categorias"><i class="fa fa-circle-o"></i> Categoria de Productos</a></li>
-                            <li><a href="<?php echo base_url();?>mantenimiento/clientes"><i class="fa fa-circle-o"></i> </a></li>
-                            <li><a href="<?php echo base_url('mantenimiento/productos?pro='.$restaurante);?>mantenimiento/productos"><i class="fa fa-circle-o"></i> Productos</a></li>
+                          
 
                             <li><a href="<?php echo base_url(); ?>mantenimiento/usuarios"><i class="fa fa-circle-o"></i> usuarios</a></li>
+                          </ul>
+                   
+                      <?php }
+
+                      else { 
+
+                            if($rol==6){   ?>
+
+
+                            <ul class="treeview-menu">
+                            
+                            <li><a href="<?php echo base_url();?>mantenimiento/categorias"><i class="fa fa-circle-o"></i> Categoria de Productos</a></li>
+                          
+                            <li><a href="<?php echo base_url('mantenimiento/productos?pro='.$restaurante);?>"><i class="fa fa-circle-o"></i> Productos</a></li>
+
+                            <li><a href="<?php echo base_url(); ?>mantenimiento/usuarios"><i class="fa fa-circle-o"></i> usuarios</a></li>
+                          </ul>
+
+
+                          <?php  }
+
+                          else {  
+
+                            if($rol==7){
+                           ?>
+
+                           <ul class="treeview-menu">
+
+                            <li><a href="<?php echo base_url();?>mantenimiento/categorias"><i class="fa fa-circle-o"></i> Categoria de Puctos</a></li>
+                            
+                            <li><a href="<?php echo base_url('mantenimiento/productos?pro='.$restaurante);?>"><i class="fa fa-circle-o"></i> Productos</a></li> 
                         </ul>
+
+                    <?php }  
+
+                }
+            }
+                    ?>     
+
+                             
+                       
+
                     </li>
+                    
+
+
                     <li class="treeview">
                         <a href="#">
-                            <i class="fa fa-share-alt"></i> <span>Movimientos</span>
+                            <i class="fa fa-share-alt"></i> <span>Movimientos <?php echo $this->session->userdata("idRol")?></span>
                             <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
                             </span>
@@ -64,10 +116,10 @@
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="<?php echo base_url();?>mantenimiento/roles"><i class="fa fa-circle-o"></i> Categoria de Productos</a></li>
-                             <li><a href="<?php echo base_url(); ?>mantenimiento/usuarios"><i class="fa fa-circle-o"></i> Productos</a></li>
-                            <li><a href="../../index.html"><i class="fa fa-circle-o"></i> Tipo Documentos</a></li>
-                            <li><a href="../../index.html"><i class="fa fa-circle-o"></i> Usuarios</a></li>
+                            <li><a href="<?php echo base_url();?>mantenimiento/roles"><i class="fa fa-circle-o"></i> </a></li>
+                             <li><a href="<?php echo base_url(); ?>mantenimiento/usuarios"><i class="fa fa-circle-o"></i> </a></li>
+                            <li><a href="../../index.html"><i class="fa fa-circle-o"></i> </a></li>
+                            <li><a href="../../index.html"><i class="fa fa-circle-o"></i> </a></li>
                         </ul>
                     </li>
                 </ul>

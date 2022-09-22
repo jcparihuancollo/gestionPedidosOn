@@ -24,18 +24,22 @@
                         <?php endif;?>
                         <form action="<?php echo base_url();?>mantenimiento/categorias/update" method="POST">
                             <input type="hidden" value="<?php echo $categoria->idCategoria;?>" name="idCategoria">
+
                             <div class="form-group <?php echo form_error('nombre') == true ? 'has-error': '';?>">
                                 <label for="nombre">Nombre:</label>
                                 <input type="text" class="form-control" id="nombre" name="nombre" value="<?php echo $categoria->nombre?>">
                                 <?php echo form_error("nombre","<span class='help-block'>","</span>");?>
                             </div>
+
                             <div class="form-group">
                                 <label for="descripcion">Descripcion:</label>
                                 <input type="text" class="form-control" id="descripcion" name="descripcion" value="<?php echo $categoria->descripcion?>">
                             </div>
+                            
                             <div class="form-group">
                                 <button type="submit" class="btn btn-success btn-flat">Guardar</button>
                             </div>
+                        
                         </form>
                     </div>
                 </div>

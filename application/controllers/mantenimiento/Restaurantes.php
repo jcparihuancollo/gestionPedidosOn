@@ -35,42 +35,87 @@ class Restaurantes extends CI_Controller {
 		$direccion = $this->input->post("direccion");
 		$horarioApertura = $this->input->post("horarioApertura");
 		$horarioCierre = $this->input->post("horarioCierre");
-		$fotoRestaurante = $this->input->post("fotoRestaurante");
+		//$fotoRestaurante = $this->input->post("fotoRestaurante");
+		$fotoRestaurante='no_image.png';
 
-		//$this->form_validation->set_rules("codigo","Codigo","required|is_unique[productos.codigo]");
+
+			//$this->form_validation->set_rules("codigo","Codigo","required|is_unique[productos.codigo]");
 		$this->form_validation->set_rules("celular","Celular","required");
 		$this->form_validation->set_rules("direccion","Direccion","required");
 		$this->form_validation->set_rules("horarioApertura","Horario Apertura","required");
 
 
-		if ($this->form_validation->run()) {
-			$data  = array(
-			'nombre' => $nombre, 
-			'telefono' => $telefono,
-			'celular' => $celular,
-			'direccion' => $direccion,
-			'horarioApertura' => $horarioApertura,
-			'horarioCierre' => $horarioCierre,
-			'fotoRestaurante'=> $fotoRestaurante,
-			'estado' => "1"
-		);
+		//cargar foto de restaurante
+		if(empty($_FILES['txtimagen']['name'])){
+		//	echo $txtfoto;
 
-		if ($this->Restaurantes_model->save($data)) {
-			redirect(base_url()."mantenimiento/restaurantes");
-		}
-		else{
-			$this->session->set_flashdata("error","No se pudo guardar la informacion");
-			redirect(base_url()."mantenimiento/restaurantes/add");
+			if ($this->form_validation->run()) {
+				$data  = array(
+				'nombre' => $nombre, 
+				'telefono' => $telefono,
+				'celular' => $celular,
+				'direccion' => $direccion,
+				'horarioApertura' => $horarioApertura,
+				'horarioCierre' => $horarioCierre,
+				'fotoRestaurante'=> $fotoRestaurante,
+				'estado' => "1"
+			);
+
+					if ($this->Restaurantes_model->save($data)) {
+						redirect(base_url()."mantenimiento/restaurantes");
+					}
+					else{
+						$this->session->set_flashdata("error","No se pudo guardar la informacion");
+						redirect(base_url()."mantenimiento/restaurantes/add");
+					
+					}
+			}
 		
-		}
-	}
-		else{
-			$this->add();
-		}
-	}
+		}else{
 
+			$config['upload_path']='./uploads/restaurantes/';
+			$config['allowed_types']='gif|jpg|png';
+			$config['max_size']='5000';
+			$config['max_width']='200';
+			$config['max_height']='200';
 
-	public function edit($id){
+			$this->load->library('upload',$config);
+			if ($this->upload->do_upload('txtimagen')) {
+				$foto= $this->upload->data('file_name');
+
+					if ($this->form_validation->run()) {
+									$data  = array(
+									'nombre' => $nombre, 
+									'telefono' => $telefono,
+									'celular' => $celular,
+									'direccion' => $direccion,
+									'horarioApertura' => $horarioApertura,
+									'horarioCierre' => $horarioCierre,
+									'fotoRestaurante'=> $foto,
+									'estado' => "1"
+								);
+
+						if ($this->Restaurantes_model->save($data)) {
+							redirect(base_url()."mantenimiento/restaurantes");
+						}
+						else{
+							$this->session->set_flashdata("error","No se pudo guardar la informacion");
+							redirect(base_url()."mantenimiento/restaurantes/add");
+						
+						}
+					}
+						else{
+							$this->add();
+						}
+			}else{
+
+				echo $this->upload->display_errors();
+
+			}
+		}
+	}	
+	public function edit($id)
+	{
 		$data  = array(
 			'restaurante' => $this->Restaurantes_model->getRestaurante($id), 
 			//"tipoclientes" => $this->Restaurante_model->getTipoClientes(),
@@ -142,11 +187,22 @@ class Restaurantes extends CI_Controller {
 
 	}
 
-	public function delete($id){
+	public function delete($id)
+	{
 		$data  = array(
 			'estado' => "0", 
 		);
 		$this->Restaurantes_model->update($id,$data);
 		echo "mantenimiento/restaurantes";
 	}
+
+	public function deletehard($id)
+	{
+		
+		$this->Restaurantes_model->eliminarRestaurante($id);
+		echo "mantenimiento/restaurantes";
+	
+	}
+
+
 }

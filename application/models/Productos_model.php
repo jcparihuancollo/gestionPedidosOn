@@ -9,7 +9,7 @@ class Productos_model extends CI_Model {
 		$this->db->join("categoria c","p.idCategoria = c.idCategoria");
 		$this->db->join("restaurante re","p.idRestaurante = re.idRestaurante");
 		$this->db->where("p.estado","1");
-		$this->db->where("p.idRestaurante",$id);
+		$this->db->where("re.idRestaurante",$id);
 		$resultados = $this->db->get();
 		return $resultados->result();
 	}

@@ -29,6 +29,12 @@ class Restaurantes_model extends CI_Model {
 		$this->db->where("idRestaurante",$id);
 		return $this->db->update("restaurante",$data);
 	}
+	public function eliminarRestaurante($id)
+	{
+		
+		$this->db->where("idRestaurante",$id);
+		 $this->db->delete("restaurante");
+	}
 
 /*	public function getTipoRestaurantes(){
 		$resultados = $this->db->get("tipo_cliente");
