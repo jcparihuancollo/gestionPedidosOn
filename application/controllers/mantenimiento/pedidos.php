@@ -18,10 +18,13 @@ class Pedidos extends CI_Controller {
 	{
 		
 		$idRestaurante=$this->input->get('pe');
+		
+		 $idUsuario = $this->session->userdata('idUsuario');
+		// echo $idUsuario;
 
          //echo "el id es  ".$idRestaurante;
 		$data  = array(
-			'pedidos' => $this->Pedidos_model->getPedidos($idRestaurante), 
+			'pedidos' => $this->Pedidos_model->getPedidos($idRestaurante,$idUsuario)
 
 			
 		);
@@ -37,6 +40,22 @@ class Pedidos extends CI_Controller {
 
 
 	}
+
+	   public function POS($idPedido) {
+
+	   	$idRestaurante=$this->input->get('pe');
+		
+		 $idUsuario = $this->session->userdata('idUsuario');
+		// echo $idUsuario;
+
+         //echo "el id es  ".$idRestaurante;
+		$data  = array(
+			'detalles' => $this->Pedidos_model->getDetalles($idPedido)
+
+		);
+                
+        $this->load->view("admin/pedidos/main_screen",$data);
+    }
 	
 
 }
