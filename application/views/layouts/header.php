@@ -7,7 +7,7 @@
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
-    <link rel="stylesheet" href="<?php echo base_url();?>assets/template/bootstrap/css/bootstrap.min.css">
+     <link rel="stylesheet" href="<?php echo base_url();?>assets/template/bootstrap/css/bootstrap.min.css"> 
      <!-- DataTables -->
     <link rel="stylesheet" href="<?php echo base_url();?>assets/template/datatables.net-bs/css/dataTables.bootstrap.min.css">
     <!-- Font Awesome -->
@@ -17,7 +17,8 @@
     <!-- AdminLTE Skins. Choose a skin from the css/skins
     folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="<?php echo base_url();?>assets/template/dist/css/skins/_all-skins.min.css">
-       <link rel="stylesheet" href="<?php echo base_url();?>assets/template/bootstrap/css/fuentes.css">
+       <!-- <link rel="stylesheet" href="<?php echo base_url();?>assets/template/bootstrap/css/fuentes.css"> -->
+           <link rel="stylesheet" href="<?php echo base_url();?>assets/bootstrap/css/bootstrap.css">
 
 
 </head>
@@ -51,6 +52,14 @@
                     <ul class="nav navbar-nav">
                         <!-- User Account: style can be found in dropdown.less -->
                         <li class="dropdown user user-menu">
+                      <!--         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                          
+                            <img src="<?php echo base_url()?>assets/imagenesproyecto/kingdom.jpg"  class="
+                        " alt="">
+                             
+                            
+                         </a> -->
+
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                           
                             <img src="<?php echo base_url()?>assets/template/dist/img/user2-160x160.jpg" class="

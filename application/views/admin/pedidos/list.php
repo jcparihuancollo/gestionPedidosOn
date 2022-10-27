@@ -32,15 +32,9 @@
                                     <th>idPedido </th>
                                     <th>descripcion </th>
                                     <th>estadoPedido</th>
-                                    <th>idResta</th>
-                                    <th>NomRestaurante</th>
-                                    <th>idcliente</th>
-                                    <th>NomCliente</th>
-                                    <th>idUsuario</th>
-                                    <th>nomOperarioLocal</th>
-                                    <th>idRol</th>
-                                    
-                              
+                                    <th>Atendido por:</th>
+                                    <th>Entregado por:</th>
+                                    <th>Total en Bs.</th>
                               
                                     <th>Opciones</th>
                                 </tr>
@@ -52,20 +46,38 @@
 
                                             <td><?php echo $pedido->idPedido;?></td>
                                             <td><?php echo $pedido->descripcion;?></td>
-                                            <td><?php echo $pedido->estadoPedido;?></td>
-                                            <td><?php echo $pedido->idRestaurante;?></td>
-                                            <td><?php echo $pedido->NomREstaurante;?></td>
-                                            <td><?php echo $pedido->idCliente;?></td>
-                                            <td><?php echo $pedido->nombredelcliente;?></td>
-                                            <td><?php echo $pedido->idUsuario;?></td>
+                                            <td><?php 
+                                              if  ($pedido->estadoPedido==1) {
+                                               // echo "Solicitado";?>
+                                                <span class=" btn-danger">Solicitado</span>
+                                              <?php } 
+
+                                               if  ($pedido->estadoPedido==2) { ?>
+                                                <span class=" btn-warning">En Camino</span>
+                                                
+                                              <?php } 
+        
+                                               if  ($pedido->estadoPedido==3) {?>
+                                                <span class="bagde btn-info">Entregado</span>
+
+                                           <?php    } ?>
+                                            </td>
+
                                             <td><?php echo $pedido->NomdelOperarioLocal;?></td>
-                                            <td><?php echo $pedido->idRol;?></td>
+                                            <!-- <?php foreach ($repartidores as $re)?>   -->
+                                            <td><?php echo $pedido->rePor;?></td>
+                                            <!-- <td><?php echo $pedido->nombredelcliente;?></td> -->
+                                            <td><?php echo $pedido->totalBs;?></td>
+
                                             
                                             
 
                                             <td>
                                                 <div class="btn-group">
-                                                     <a href="<?php echo base_url();?>" class="btn btn-warning"><span class=""></span>VER DETALLE      </a>
+
+                                                          
+                                                     <a href="<?php echo base_url();?>mantenimiento/pedidos/POS?idd=<?php echo $pedido->idPedido;?>&NO=<?php echo $pedido->NomdelOperarioLocal;?>&estPed=<?php echo $pedido->estadoPedido;?>&total=<?php echo $pedido->totalBs;?>
+                                                     &cliente=<?php echo $pedido->nombredelcliente;?>&idOperario=<?php echo $pedido->idOperario;?>" class="btn btn-warning"><span class=""></span>VER DETALLE      </a>
                                                   
                                                     
                                                 </div>

@@ -24,6 +24,7 @@
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url();?>assets/template/dist/js/demo.js"></script>
 <script>
+
 $(document).ready(function () {
     var base_url= "<?php echo base_url();?>";
     $(".btn-remove").on("click", function(e){
@@ -49,8 +50,6 @@ $(document).ready(function () {
         html = "<p><strong>Nombre:</strong> "+infoproducto[0]+"</p>"
         html += "<p><strong>Precio:</strong>    "+infoproducto[1]+"</p>"
         html += "<p><strong>Descripcion:</strong>   "+infoproducto[2]+"</p>"
-     
-        
         html += "<p><strong>Categoria:</strong>    "+infoproducto[3]+"</p>";
         $("#modal-default .modal-body").html(html);
     });
@@ -65,9 +64,10 @@ $(document).ready(function () {
         html += "<p><strong>Tipo de Documento:</strong>"+infocliente[3]+"</p>"
         html += "<p><strong>Numero  de Documento:</strong>"+infocliente[4]+"</p>"
         html += "<p><strong>Telefono:</strong>"+infocliente[5]+"</p>"
-        html += "<p><strong>Direccion:</strong>"+infocliente[6]+"</p>"
+        html += "<p><strong>Dirección:</strong>"+infocliente[6]+"</p>"
         $("#modal-default .modal-body").html(html);
     });
+
     $(".btn-view").on("click", function(){
         var id = $(this).val();
         $.ajax({
